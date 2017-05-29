@@ -1,0 +1,103 @@
+package org.main;
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Grid {
+	
+	public static void main(String []args) throws FileNotFoundException
+	{
+		Scanner sc = new Scanner(new File("input.txt"));
+		String text1 = sc.nextLine();
+		int count=0;
+		StringTokenizer st = new StringTokenizer(text1," ");
+		while(st.hasMoreTokens()){
+			st.nextElement();
+				count++;
+		}
+		sc.close();
+		
+		Scanner scan = new Scanner(new File("input.txt"));
+		ArrayList<ArrayList<Integer>> outsideArray=new ArrayList<ArrayList<Integer>>();
+
+		while(scan.hasNextInt())
+		 {
+			ArrayList<Integer> prior = new ArrayList<Integer>();
+			for (int r = 0; r < count; r++) 
+			{
+			  
+				prior.add(scan.nextInt());
+				
+			}
+			//System.out.println(prior);
+			outsideArray.add(prior);
+		 }
+		//System.out.println(outsideArray);
+		
+		System.out.printf("The Greatest product of four adjacent numbers in the same direction is: %d  ", Calculation(outsideArray));
+		//System.out.println(Calculation(outsideArray));
+		scan.close();
+	}
+	
+	public static int Calculation(ArrayList<ArrayList<Integer>> Calculate)
+	{
+		int greatestProduct=0;
+		// Left to right 
+	      for (int i = 0; i < 20; i++) {
+	         for (int j = 0; j < 17; j++) {
+	            int product = 1;
+	            for (int k = 0; k < 4; k++) {
+	               product = product * Calculate.get(i).get(j+k);
+	            }
+	            if (product > greatestProduct) {
+	               greatestProduct = product;
+	            }
+	         }
+	      }
+	      System.out.println(greatestProduct);
+	   // Up and down 
+	      for (int i = 0; i < 17; i++) {
+	         for (int j = 0; j < 20; j++) {
+	            int product = 1;
+	            for (int k = 0; k < 4; k++) {
+	               product = product * Calculate.get(i+k).get(j);
+	            }
+	            if (product > greatestProduct) {
+	               greatestProduct = product;
+	            }
+	         }
+	      }
+	      System.out.println(greatestProduct);
+	      // Diagonal multiplication (\)
+	      for (int i = 0; i < 17; i++) {
+	         for (int j = 0; j < 17; j++) {
+	            int product = 1;
+	            for (int k = 0; k < 4; k++) {
+	               product = product * Calculate.get(i+k).get(j+k);
+	            }
+	            if (product > greatestProduct) {
+	               greatestProduct = product;
+	            }
+	         }
+	      }
+	      System.out.println(greatestProduct);
+	      // Diagonal multiplication(/)
+	      for (int i = 0; i < 17; i++) {
+	         for (int j = 3; j < 20; j++) {
+	            int product = 1;
+	            for (int k = 0; k < 4; k++) {
+	               product = product * Calculate.get(i+k).get(j-k);
+	            }
+	            if (product > greatestProduct) {
+	               greatestProduct = product;
+	            }
+	         }
+	      }
+	      System.out.println(greatestProduct);
+		return greatestProduct;
+	}
+}
