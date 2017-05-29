@@ -1,0 +1,8 @@
+I would prefer to go with Agile Development. Unlike other development process, it indulge customer in the day to day development of their product, which helps to make sure that the product we are developing is the same that customer wants. 
+
+	As for the planning for the app/ website.
+	1. I will gather all the requirement from the customer. 
+	2. I will go through the requirement with my development team and make sure all the developing members are in same page. Also, make sure that customer requirements are do able . 
+	3. I will run through all the requirements with customer and list out the most critical to least critical requirements. 
+	4. After all the requirements has been finalize, I will divide requirements into different iteration cycles from most critical to least critical. 
+	5. I will tell customer about the general idea of the development and how the software will going to be delivered and time frame for the completion of the project. 
