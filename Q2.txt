@@ -1,0 +1,44 @@
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class IP {
+
+	public static void main(String[] args) {
+		IP ip = new IP();
+		List<String> st = ip.stringToIp("127000");
+		for (int i = 0; i < st.size(); i++) {
+			System.out.println(st.get(i));
+		}
+	}
+
+	public List<String> stringToIp(String str) {
+		int strLength = str.length();
+		List<String> compute = new ArrayList<>();
+		for (int i = 1; i <= 3; i++) {
+			if (i < strLength - 9)     // Condition to compute less than or equals to 3 digits. 
+				continue;
+			for (int j = i + 1; j <= i + 3; j++) {
+				if (j < strLength - 6)   // Condition to compute less than or equals to 3 digits.
+					continue;
+				for (int k = j + 1; k <= j + 3 && k < strLength; k++) {
+					if (k < strLength - 3)
+						continue;
+					int a = Integer.valueOf(str.substring(0, i));  // getting the values for the 4 octets. 
+					int b = Integer.valueOf(str.substring(i, j));
+					int c = Integer.valueOf(str.substring(j, k));
+					int d = Integer.valueOf(str.substring(k, strLength));
+					if (a > 255 || b > 255 || c > 255 || d > 255)
+						continue;
+					String one = String.valueOf(a) + '.' + String.valueOf(b)    //restoring the ip address form from the input string
+							+ '.' + String.valueOf(c) + '.' + String.valueOf(d);
+					if (one.length() < strLength + 3)
+						continue;
+					compute.add(one);
+				}
+			}
+		}
+		return compute;
+	}
+}
