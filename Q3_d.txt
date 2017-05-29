@@ -1,0 +1,35 @@
+package org.test;
+
+import org.main.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
+import static org.junit.Assert.assertEquals;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class TestSuccess {
+	
+	Calculator Cal=new Calculator();
+	
+	@Before
+	public void setUp () {
+	}
+   @Test
+   public void testValid() { 
+	   double result = Cal.result(65,3);
+	   assertEquals(21.0,result,0.0);
+   }
+   
+   @Test
+   public void testInfinity()
+   {
+	   double result=Cal.result(4000, 0);
+	   assertEquals(Double.POSITIVE_INFINITY,result,0.0);
+   }
+   @After
+	public void tearDown () {
+	}
+}

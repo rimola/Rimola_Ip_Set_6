@@ -1,0 +1,25 @@
+package org.main;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class Calculator {
+
+	public double result(int divident, int divisor)
+	{
+		double result=0.0;
+		if(divisor==0)
+		{
+			result = Double.POSITIVE_INFINITY;
+			return result;
+		}
+		
+		else{
+			// RoundingMode use here is typical round mode which gives
+			// 		nearest round mode >=5 concept. 
+			result=BigDecimal.valueOf(divident/divisor)
+					.setScale(3, RoundingMode.HALF_UP).doubleValue();	
+		}
+		return result;
+	}
+
+}

@@ -1,0 +1,25 @@
+package org.test;
+
+import org.main.*;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class TestFailure {
+	
+	Calculator Cal=new Calculator();
+   @Test
+   public void testFail()
+   {
+	   double result=Cal.result(12, 5);
+	   assertEquals(3.0, result, 0.0);
+   }
+   
+   @Test
+   public void testFailer()
+   {
+	   double result=Cal.result(2000,11);
+	   assertEquals(60.0, result, 0.0);
+   }
+
+}

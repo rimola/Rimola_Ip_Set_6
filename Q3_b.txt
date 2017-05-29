@@ -1,0 +1,27 @@
+package org.main;
+import org.test.TestFailure;
+import org.test.TestSuccess;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
+
+public class TestRun {
+	public static void main(String[] args) {
+		Result result = JUnitCore.runClasses(TestSuccess.class);
+		System.out.println("The result from TestSuccess Class \n" + result.wasSuccessful());
+		for (Failure failure : result.getFailures()) {
+			System.out.println(failure.toString());
+		}
+		
+		System.out.println("\n");
+		
+		Result result1=JUnitCore.runClasses(TestFailure.class);
+		System.out.println("The result from TestFailure Class");
+		for (Failure failure : result1.getFailures()) {
+			System.out.println(failure.toString());
+		}
+		System.out.println(result1.wasSuccessful());
+	}
+	
+}  	
