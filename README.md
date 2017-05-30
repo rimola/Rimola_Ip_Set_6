@@ -1,9 +1,9 @@
 
 # Set-6
 
-Rimola Maharjan
-Graduated From St. Xavier's College
-rimolamaharjan@gmail.com 
+* Rimola Maharjan
+* Graduated From St. Xavier's College
+* rimolamaharjan@gmail.com 
 
 
 --Q1.txt contains solution for 20*20 grid. The input is structured dynamically so that it can be used for other grid dimension also.
